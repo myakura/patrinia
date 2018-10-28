@@ -26,29 +26,31 @@ class IconSVG extends HTMLElement {
     this.setAttribute(`icon-source`, value);
   }
 
+  _render() {
+    this.shadowRoot.innerHTML = `
+    <style>
+      :host {
+        display: inline-flex;
+      }
+      svg {
+        width: ${this.width}px;
+        height: ${this.height}px;
+      }
+    </style>
+    <svg>
+      <use xlink:href="${this.source}"/>
+    </svg>
+  `;
+  }
+
   connectedCallback() {
     this.source = this.getAttribute(`icon-source`) || this.source;
     this.width = this.getAttribute(`icon-width`) || this.width;
     this.height = this.getAttribute(`icon-height`) || this.height;
     if (!this.shadowRoot) {
       this.attachShadow({ mode: `open` });
+      this._render();
     }
-
-    this._shadow = this.shadowRoot;
-    this._shadow.innerHTML = `
-      <style>
-        :host {
-          display: inline-flex;
-        }
-        svg {
-          width: ${this.width}px;
-          height: ${this.height}px;
-        }
-      </style>
-      <svg>
-        <use xlink:href="${this.source}"/>
-      </svg>
-    `;
   }
 
   disconnectedCallback() {}
@@ -56,6 +58,9 @@ class IconSVG extends HTMLElement {
   attributeChangedCallback(name, oldValue, newValue) {
     if (oldValue !== newValue) {
       this[name.replace('icon-', '')] = newValue;
+      if (this.shadowRoot) {
+        this._render();
+      }
     }
   }
 }
