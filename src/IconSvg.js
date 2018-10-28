@@ -1,5 +1,7 @@
 class IconSVG extends HTMLElement {
-  static get observedAttributes() {}
+  static get observedAttributes() {
+    return [`icon-source`, `icon-width`, `icon-height`];
+  }
 
   constructor() {
     super();
