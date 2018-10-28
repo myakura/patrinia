@@ -28,19 +28,19 @@ class IconSVG extends HTMLElement {
 
   _render() {
     this.shadowRoot.innerHTML = `
-    <style>
-      :host {
-        display: inline-flex;
-      }
-      svg {
-        width: ${this.width}px;
-        height: ${this.height}px;
-      }
-    </style>
-    <svg>
-      <use xlink:href="${this.source}"/>
-    </svg>
-  `;
+      <style>
+        :host {
+          display: inline-flex;
+        }
+        svg {
+          width: ${this.width}px;
+          height: ${this.height}px;
+        }
+      </style>
+      <svg>
+        <use xlink:href="${this.source}"/>
+      </svg>
+    `;
   }
 
   connectedCallback() {
