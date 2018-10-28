@@ -60,7 +60,7 @@ class IconSVG extends HTMLElement {
   disconnectedCallback() {}
 
   attributeChangedCallback(name, oldValue, newValue) {
-    this[name] = newValue;
+    this[name.replace('icon-', '')] = newValue;
   }
 }
 
