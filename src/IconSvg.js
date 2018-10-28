@@ -63,7 +63,9 @@ class IconSVG extends HTMLElement {
 
   disconnectedCallback() {}
 
-  attributeChangedCallback(name, oldValue, newValue) {}
+  attributeChangedCallback(name, oldValue, newValue) {
+    this[name] = newValue;
+  }
 }
 
 export default IconSVG;
