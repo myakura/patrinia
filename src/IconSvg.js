@@ -5,10 +5,6 @@ class IconSVG extends HTMLElement {
 
   constructor() {
     super();
-
-    this.source = ``;
-    this.width = 0;
-    this.height = 0;
   }
 
   _setAttrLeany(name, value) {
