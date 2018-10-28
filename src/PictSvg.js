@@ -1,6 +1,6 @@
-class IconSVG extends HTMLElement {
+class PictSvg extends HTMLElement {
   static get observedAttributes() {
-    return [`icon-source`, `icon-width`, `icon-height`];
+    return [`pict-source`, `pict-width`, `pict-height`];
   }
 
   constructor() {
@@ -8,22 +8,22 @@ class IconSVG extends HTMLElement {
   }
 
   get width() {
-    return this.getAttribute(`icon-width`);
+    return this.getAttribute(`pict-width`);
   }
   set width(value) {
-    this.setAttribute(`icon-width`, value);
+    this.setAttribute(`pict-width`, value);
   }
   get height() {
-    return this.getAttribute(`icon-height`);
+    return this.getAttribute(`pict-height`);
   }
   set height(value) {
-    this.setAttribute(`icon-height`, value);
+    this.setAttribute(`pict-height`, value);
   }
   get source() {
-    return this.getAttribute(`icon-source`);
+    return this.getAttribute(`pict-source`);
   }
   set source(value) {
-    this.setAttribute(`icon-source`, value);
+    this.setAttribute(`pict-source`, value);
   }
 
   _render() {
@@ -44,9 +44,9 @@ class IconSVG extends HTMLElement {
   }
 
   connectedCallback() {
-    this.source = this.getAttribute(`icon-source`) || this.source;
-    this.width = this.getAttribute(`icon-width`) || this.width;
-    this.height = this.getAttribute(`icon-height`) || this.height;
+    this.source = this.getAttribute(`pict-source`) || this.source;
+    this.width = this.getAttribute(`pict-width`) || this.width;
+    this.height = this.getAttribute(`pict-height`) || this.height;
     if (!this.shadowRoot) {
       this.attachShadow({ mode: `open` });
     }
@@ -57,10 +57,10 @@ class IconSVG extends HTMLElement {
 
   attributeChangedCallback(name, oldValue, newValue) {
     if (oldValue !== newValue) {
-      this[name.replace('icon-', '')] = newValue;
+      this[name.replace('pict-', '')] = newValue;
       this._render();
     }
   }
 }
 
-export default IconSVG;
+export default PictSvg;
