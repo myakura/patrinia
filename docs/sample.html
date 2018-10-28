@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>icon-svg</title>
+<style></style>
+
+<body>
+  <h1>The <code>&lt;icon-svg&gt;</code> element</h1>
+
+  <div class="demo">
+    <icon-svg icon-source="svg/set__notifications.svg#notification" icon-width="48" icon-height="48"></icon-svg>
+  </div>
+
+  <script type="module">
+    import IconSvg from "../src/IconSvg.js";
+    window.customElements.define(`icon-svg`, IconSvg);
+  </script>
+</body>
