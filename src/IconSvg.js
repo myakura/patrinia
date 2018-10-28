@@ -4,15 +4,15 @@ class IconSVG extends HTMLElement {
   constructor() {
     super();
 
-    this._source = ``;
-    this._width = 0;
-    this._height = 0;
+    this.source = ``;
+    this.width = 0;
+    this.height = 0;
   }
 
   connectedCallback() {
-    this._source = this.getAttribute(`icon-source`);
-    this._width = parseInt(this.getAttribute(`icon-width`)) || 0;
-    this._height = parseInt(this.getAttribute(`icon-height`)) || 0;
+    this.source = this.getAttribute(`icon-source`);
+    this.width = parseInt(this.getAttribute(`icon-width`)) || 0;
+    this.height = parseInt(this.getAttribute(`icon-height`)) || 0;
 
     this.attachShadow({ mode: `open` });
     this._shadow = this.shadowRoot;
@@ -22,12 +22,12 @@ class IconSVG extends HTMLElement {
           display: inline-flex;
         }
         svg {
-          width: ${this._width}px;
-          height: ${this._height}px;
+          width: ${this.width}px;
+          height: ${this.height}px;
         }
       </style>
       <svg>
-        <use xlink:href="${this._source}"/>
+        <use xlink:href="${this.source}"/>
       </svg>
     `;
   }
