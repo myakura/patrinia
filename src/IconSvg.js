@@ -7,6 +7,12 @@ class IconSVG extends HTMLElement {
     this._source = null;
     this._width = 0;
     this._height = 0;
+  }
+
+  connectedCallback() {
+    this._source = this.getAttribute(`icon-source`);
+    this._width = parseInt(this.getAttribute(`icon-width`)) || 0;
+    this._height = parseInt(this.getAttribute(`icon-height`)) || 0;
 
     this.attachShadow({ mode: `open` });
     this._shadow = this.shadowRoot;
@@ -24,12 +30,6 @@ class IconSVG extends HTMLElement {
         <use xlink:href="${this._source}"/>
       </svg>
     `;
-  }
-
-  connectedCallback() {
-    this._source = this.getAttribute(`icon-source`);
-    this._width = parseInt(this.getAttribute(`icon-width`)) || 0;
-    this._height = parseInt(this.getAttribute(`icon-height`)) || 0;
   }
 
   disconnectedCallback() {}
