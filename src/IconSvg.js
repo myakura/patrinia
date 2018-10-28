@@ -33,9 +33,9 @@ class IconSVG extends HTMLElement {
   }
 
   connectedCallback() {
-    this.source = this.getAttribute(`icon-source`);
-    this.width = parseInt(this.getAttribute(`icon-width`)) || 0;
-    this.height = parseInt(this.getAttribute(`icon-height`)) || 0;
+    this.source = this.getAttribute(`icon-source`) || this.source;
+    this.width = this.getAttribute(`icon-width`) || this.width;
+    this.height = this.getAttribute(`icon-height`) || this.height;
     if (!this.shadowRoot) {
       this.attachShadow({ mode: `open` });
     }
