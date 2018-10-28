@@ -10,8 +10,8 @@ class IconSVG extends HTMLElement {
   }
 
   _setAttrLeany(name, value) {
-    if (this.getAttribute(`icon-${name}`) !== value) {
-      this.setAttribute(`icon-${name}`, value);
+    if (this.getAttribute(name) !== value) {
+      this.setAttribute(name, value);
     }
   }
 
@@ -19,19 +19,19 @@ class IconSVG extends HTMLElement {
     return this.getAttribute(`icon-width`);
   }
   set width(value) {
-    this._setAttrLeany(`width`, value);
+    this._setAttrLeany(`icon-width`, value);
   }
   get height() {
     return this.getAttribute(`icon-height`);
   }
   set height(value) {
-    this._setAttrLeany(`height`, value);
+    this._setAttrLeany(`icon-height`, value);
   }
   get source() {
     return this.getAttribute(`icon-source`);
   }
   set source(value) {
-    this._setAttrLeany(`source`, value);
+    this._setAttrLeany(`icon-source`, value);
   }
 
   connectedCallback() {
