@@ -49,8 +49,8 @@ class IconSVG extends HTMLElement {
     this.height = this.getAttribute(`icon-height`) || this.height;
     if (!this.shadowRoot) {
       this.attachShadow({ mode: `open` });
-      this._render();
     }
+    this._render();
   }
 
   disconnectedCallback() {}
@@ -58,9 +58,7 @@ class IconSVG extends HTMLElement {
   attributeChangedCallback(name, oldValue, newValue) {
     if (oldValue !== newValue) {
       this[name.replace('icon-', '')] = newValue;
-      if (this.shadowRoot) {
-        this._render();
-      }
+      this._render();
     }
   }
 }
