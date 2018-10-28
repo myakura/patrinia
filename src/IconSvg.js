@@ -38,8 +38,10 @@ class IconSVG extends HTMLElement {
     this.source = this.getAttribute(`icon-source`);
     this.width = parseInt(this.getAttribute(`icon-width`)) || 0;
     this.height = parseInt(this.getAttribute(`icon-height`)) || 0;
+    if (!this.shadowRoot) {
+      this.attachShadow({ mode: `open` });
+    }
 
-    this.attachShadow({ mode: `open` });
     this._shadow = this.shadowRoot;
     this._shadow.innerHTML = `
       <style>
