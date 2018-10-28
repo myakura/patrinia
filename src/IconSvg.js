@@ -9,29 +9,29 @@ class IconSVG extends HTMLElement {
     this.height = 0;
   }
 
+  _setAttrLeany(name, value) {
+    if (this.getAttribute(`icon-${name}`) !== value) {
+      this.setAttribute(`icon-${name}`, value);
+    }
+  }
+
   get width() {
     return this.getAttribute(`icon-width`);
   }
   set width(value) {
-    if (this.getAttribute(`icon-width`) !== value) {
-      this.setAttribute(`icon-width`, value);
-    }
+    this._setAttrLeany(`width`, value);
   }
   get height() {
     return this.getAttribute(`icon-height`);
   }
   set height(value) {
-    if (this.getAttribute(`icon-height`) !== value) {
-      this.setAttribute(`icon-height`, value);
-    }
+    this._setAttrLeany(`height`, value);
   }
   get source() {
     return this.getAttribute(`icon-source`);
   }
   set source(value) {
-    if (this.getAttribute(`icon-source`) !== value) {
-      this.setAttribute(`icon-source`, value);
-    }
+    this._setAttrLeany(`source`, value);
   }
 
   connectedCallback() {
