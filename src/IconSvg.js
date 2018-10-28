@@ -4,7 +4,7 @@ class IconSVG extends HTMLElement {
   constructor() {
     super();
 
-    this._source = null;
+    this._source = ``;
     this._width = 0;
     this._height = 0;
   }
