@@ -13,7 +13,10 @@ class IconSVG extends HTMLElement {
         :host {
           display: inline-flex;
         }
-        svg { width: ${this._width}px; height: ${this._height}px; }
+        svg {
+          width: ${this._width}px;
+          height: ${this._height}px;
+        }
       </style>
       <svg>
         <use xlink:href="${this._source}"/>
