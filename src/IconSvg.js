@@ -1,4 +1,6 @@
 class IconSVG extends HTMLElement {
+  static get observedAttributes() {}
+
   constructor() {
     super();
 
@@ -23,8 +25,6 @@ class IconSVG extends HTMLElement {
       </svg>
     `;
   }
-
-  static get observedAttributes() {}
 
   connectedCallback() {}
 
