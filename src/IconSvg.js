@@ -7,29 +7,23 @@ class IconSVG extends HTMLElement {
     super();
   }
 
-  _setAttrLeany(name, value) {
-    if (this.getAttribute(name) !== value) {
-      this.setAttribute(name, value);
-    }
-  }
-
   get width() {
     return this.getAttribute(`icon-width`);
   }
   set width(value) {
-    this._setAttrLeany(`icon-width`, value);
+    this.setAttribute(`icon-width`, value);
   }
   get height() {
     return this.getAttribute(`icon-height`);
   }
   set height(value) {
-    this._setAttrLeany(`icon-height`, value);
+    this.setAttribute(`icon-height`, value);
   }
   get source() {
     return this.getAttribute(`icon-source`);
   }
   set source(value) {
-    this._setAttrLeany(`icon-source`, value);
+    this.setAttribute(`icon-source`, value);
   }
 
   connectedCallback() {
@@ -60,7 +54,9 @@ class IconSVG extends HTMLElement {
   disconnectedCallback() {}
 
   attributeChangedCallback(name, oldValue, newValue) {
-    this[name.replace('icon-', '')] = newValue;
+    if (oldValue !== newValue) {
+      this[name.replace('icon-', '')] = newValue;
+    }
   }
 }
 
