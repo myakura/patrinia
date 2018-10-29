@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>pict-svg</title>
+<style></style>
+
+<body>
+  <h1>The <code>&lt;pict-svg&gt;</code> element</h1>
+
+  <div class="demo">
+    <pict-svg pict-source="svg/set__notifications.svg#notification" pict-width="48" pict-height="48"></pict-svg>
+  </div>
+
+  <script type="module">
+    import PictSvg from "../src/PictSvgLitHtml.js";
+    window.customElements.define(`pict-svg`, PictSvg);
+  </script>
+</body>
