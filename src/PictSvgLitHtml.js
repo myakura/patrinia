@@ -1,4 +1,8 @@
-import { html, directive, render } from 'https://unpkg.com/lit-html';
+import {
+  html,
+  directive,
+  render as placeContent,
+} from 'https://unpkg.com/lit-html';
 
 class PictSvg extends HTMLElement {
   markup(source) {
@@ -33,7 +37,7 @@ class PictSvg extends HTMLElement {
     if (!this.shadowRoot) {
       this.attachShadow({ mode: `open` });
     }
-    render(this.markup(pictSource), this.shadowRoot);
+    placeContent(this.markup(pictSource), this.shadowRoot);
   }
 }
 
