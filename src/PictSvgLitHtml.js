@@ -28,6 +28,10 @@ class PictSvg extends HTMLElement {
     `;
   }
 
+  render(value) {
+    placeContent(this.markup(value), this.shadowRoot);
+  }
+
   constructor() {
     super();
   }
@@ -37,7 +41,7 @@ class PictSvg extends HTMLElement {
     if (!this.shadowRoot) {
       this.attachShadow({ mode: `open` });
     }
-    placeContent(this.markup(pictSource), this.shadowRoot);
+    this.render(pictSource);
   }
 }
 
