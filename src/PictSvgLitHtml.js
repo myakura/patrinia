@@ -30,7 +30,10 @@ class PictSvg extends HTMLElement {
 
   connectedCallback() {
     const pictSource = this.getAttribute(`pict-source`);
-    render(this.markup(pictSource), this.attachShadow({ mode: `open` }));
+    if (!this.shadowRoot) {
+      this.attachShadow({ mode: `open` });
+    }
+    render(this.markup(pictSource), this.shadowRoot);
   }
 }
 
